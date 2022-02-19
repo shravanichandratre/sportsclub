@@ -1,0 +1,802 @@
+WindowManager:
+    MainScreen:
+    AdminScreen:
+    AdminLScreen:
+    SignupScreen:
+    SearchScreen:
+    EditScreen:
+    DeleteScreen:
+    DisplayScreen:
+
+<EditScreen>:
+    nE: nE
+    cE: cE
+    idE: idE
+    phnE: phnE
+    lE: lE
+    sE: sE
+    eE: eE
+    gE: gE
+
+    name: "Edit_Screen"
+    rows: 9
+    
+    Label:
+        text: "User ID: "
+        size_hint_x: None
+        font_size: "23dp"
+        color: 0,0,0,1
+        width: "200dp"
+    TextInput:
+        id: idE
+        multiline: False
+           
+    Label:
+        text: "User Name: "
+        font_size: "23dp"
+        color: 0,0,0,1
+        size_hint_x: None
+        width: "200dp"
+    TextInput:
+        id: nE
+        multiline: False
+        
+    Label:
+        text: "Gender: "
+        font_size: "23dp"
+        color: 0,0,0,1
+        size_hint_x: None
+        width: "200dp"
+    TextInput:
+        id: gE
+        multiline: False
+
+    Label:
+        text: "Phone Number: "
+        font_size: "23dp"
+        color: 0,0,0,1
+        size_hint_x: None
+        width: "200dp"
+    TextInput:
+        id: phnE
+        multiline: False
+
+    Label:
+        text: "City: "
+        font_size: "23dp"
+        color: 0,0,0,1
+        size_hint_x: None
+        width: "200dp"
+    TextInput:
+        id: cE
+
+    Label:
+        text: "Level: "
+        font_size: "23dp"
+        color: 0,0,0,1
+        size_hint_x: None
+        width: "200dp"
+    TextInput:
+        id: lE
+        multiline: False
+    
+    Label:
+        text: "Sport: "
+        font_size: "23dp"
+        color: 0,0,0,1
+        size_hint_x: None
+        width: "200dp"
+    TextInput:
+        id: sE
+        multiline: False
+    
+    Label:
+        text: "Email ID: "
+        font_size: "23dp"
+        color: 0,0,0,1
+        size_hint_x: None
+        width: "200dp"
+    TextInput:
+        id: eE
+        multiline: False
+    
+    
+    BoxLayout:
+        Button:
+            text: "Search"
+            size_hint: 1,1
+            bold: True
+            color: 0,0,0,1
+            background_color: 0,128,128, .7
+            font_size: "23dp"
+            on_release:
+                root.checkIfInvalid()
+            
+        Button:
+            text: "Save"
+            size_hint: 1,1
+            bold: True
+            color: 0,0,0,1
+            background_color: 0,128,128, .7
+            font_size: "23dp"
+            on_release:
+                root.updateRecord()
+                app.root.current="Admin_Screen"
+                root.manager.transition.direcion="right"
+        Button:
+            text: "Back"
+            bold: True
+            color: 0,0,0,1
+            background_color: 0,128,128, .7
+            font_size: "23dp"
+            size_hint: 1,1
+            on_release:
+                app.root.current="Admin_Screen"
+                root.manager.transition.direcion="right"
+
+<SearchScreen>:
+    n: n
+    phn: phn
+    g: g
+    c: c
+    l:l
+    s:s
+    e:e
+    
+    searchInput: searchInput
+    name: "Search_Screen"
+    canvas.before:
+        Color:
+            rgb: 1,1,1,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    orientation:"vertical"
+    specific_text_color: 0,0,0,1
+    
+    TextInput:
+        id: searchInput
+        size_hint_y: None
+        size: "80dp","80dp"
+        # font_size: "23dp"
+        
+    Button:
+        text: "Search"
+        size_hint_y: None
+        size: "80dp","80dp"
+        bold: True
+        color: 0,0,0,1
+        background_color: 0,128,128, .7
+        font_size: "23dp"
+        on_release:
+            root.checkIfValid()
+    
+    BoxLayout:
+        #orientation:"vertical"
+        
+        GridLayout:
+            # size_hint: 1, None
+            # size_hint_y: None
+            # height: 25
+            rows: 8
+            cols: 2
+            Label:
+                text:"ID:"
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+                bold: True
+
+            Label: 
+                text: searchInput.text
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+                bold: True
+
+            Label:
+                text:"Name:"
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+                bold: True
+            Label:
+                id: n
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+                bold: True
+            
+            Label:
+                text:"Phone Number:"
+                bold: True
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+            Label:
+                id: phn
+                color: 0,0,0,1
+                bold: True
+                #size_hint: None,None
+                size: "20dp","20dp"
+            
+            Label:
+                text:"Gender:"
+                bold: True
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+            Label:
+                id: g
+                bold: True
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+
+            Label:
+                text:"City:"
+                bold: True
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+            Label:
+                id: c
+                bold: True
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+
+            Label:
+                text:"Level:"
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+                bold: True
+            Label:
+                id: l
+                bold: True
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+
+            Label:
+                text:"Sport:"
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+                bold: True
+            Label:
+                id: s
+                bold: True
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+
+            Label:
+                text:"Email ID:"
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+                bold: True
+            Label:
+                id: e
+                bold: True
+                color: 0,0,0,1
+                #size_hint: None,None
+                size: "20dp","20dp"
+        
+    BoxLayout:
+        Button:
+            text: "Back"
+            size_hint_y: None
+            size: "80dp","80dp"
+            bold: True
+            color: 0,0,0,1
+            background_color: 0,128,128, .7
+            font_size: "23dp"
+            on_release:
+                app.root.current="Admin_Screen"
+                root.manager.transition.direcion="right"
+            
+<DeleteScreen>:
+    name: "Delete_Screen"
+    orientation: "vertical"
+    delInput: delInput
+    Label:
+        font_size: "20dp"
+        text: "Enter User ID: "
+        color: 0,0,0,1
+    TextInput:
+        id: delInput
+        multiline: False
+    Button:
+        text: "Delete"
+        bold: True
+        color: 0,0,0,1
+        background_color: 0,128,128, .7
+        font_size: "23dp"
+        size_hint: 1,1
+        #on_press: root.cd()
+        on_release:
+            root.delItem() #popup
+            app.root.current="Admin_Screen"
+            root.manager.transition.direcion="right"
+    Button:
+        text: "Back"
+        bold: True
+        color: 0,0,0,1
+        background_color: 0,128,128, .7
+        font_size: "23dp"
+        size_hint: 1,1
+        on_release:
+            app.root.current="Main_Screen"
+            root.manager.transition.direcion="right"
+ 
+<DisplayScreen>:
+    name: "Display_Screen"
+    orientation: "vertical"
+    canvas.before:
+        Color:
+            rgb: 0,0,0,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    BoxLayout:
+        orientation:"vertical"
+        GridLayout:
+            size_hint: 1, None
+            #size_hint_y: None
+            height: 25
+            cols: 8
+            rows: 2
+           
+            # Label:
+            #     text:"ID"
+            #     #color: 1,1,1,1
+            Label:
+                text:"ID"
+            Label:
+                text:"Name"
+                #color: 0,0,0,1
+            Label:
+                text:"Phone"
+                #color: 0,0,0,1
+            Label:
+                text:"Gender"
+                #color: 0,0,0,1
+            Label:
+                text:"City"
+                #color: 0,0,0,1
+            Label:
+                text:"Level"
+                #color: 0,0,0,1
+            Label:
+                text:"Sport"
+                #color: 0,0,0,1
+                #BoxLayout:
+            Label:
+                text:"Email"
+                #color: 0,0,0,1
+                #BoxLayout:
+ 
+        BoxLayout:
+            RecycleView:
+               
+                viewclass: 'Label'
+               
+                data: [{'text': str(x)} for x in root.data_items]
+                RecycleGridLayout:
+                    color:(0, 0.7, 0.4, 0.8)
+                    cols:8
+                    default_size: None, sp(26)
+                    default_size_hint: 1, None
+                    size_hint_y: None
+                    height: self.minimum_height
+ 
+    Button:
+        size_hint: 1,None
+        height: "100dp"
+        text:'Back'
+        bold: True
+        color: 0,0,0,1
+        background_color: 0,128,128, .7
+        font_size: "23dp"
+        on_release:
+            app.root.current="Admin_Screen"
+            root.manager.transition.direcion="right"
+ 
+ 
+ 
+<MainScreen>:
+    name: "Main_Screen"
+    orientation: "vertical"
+    canvas.before:
+        Rectangle:
+            size:self.size
+            source:"C:/Users/Lenovo/Desktop/kivy-thelab/images/EditedTableTennis.jpg"
+    Label:
+        text: "PUNE SPORTS CLUB"
+        color: 0,0,0,1
+        bold: True
+        font_size: "40dp"
+        size_hint: 1, 1
+        pos:0,200
+    Label:
+        canvas:
+            Rectangle:
+                source:"C:/Users/Lenovo/Desktop/kivy-thelab/images/EditedLogo.jpg"
+                pos:625,425
+    Label:
+        text: "Address: Kothrud, Pune.       8734567899       psc@gmail.com"
+        color: 0,0,0,1
+        bold: True
+        font_size: "20dp"
+        size_hint: 1, 1
+        pos:10,85
+    Button:
+        text: "Admin"
+        size_hint:.42,.1
+        color: 0,0,0,1
+        pos:57,290
+        background_color: 0,128,128, .7
+        font_size: "30dp"
+        on_release:
+            app.root.current="AdminL_Screen"
+            root.manager.transition.direcion="left"
+    Button:
+        text: "Sign Up"
+        color: 0,0,0,1
+        size_hint:.42,.1
+        pos:400,290
+        background_color: 0,128,128, .7
+        font_size: "30dp"
+        on_release:
+            app.root.current="Signup_Screen"
+            root.manager.transition.direcion="right"
+    Image:
+        source: "C:/Users/Lenovo/Desktop/kivy-thelab/images/Box.jpg"
+        size_hint:.3,.3
+        pos:60,110
+    Image:
+        source: "C:/Users/Lenovo/Desktop/kivy-thelab/images/Bad1.jpg"
+        size_hint:.3,.265
+        pos:291,120
+    Image:
+        source: "C:/Users/Lenovo/Desktop/kivy-thelab/images/Bad2.jpg"
+        size_hint:.27,1
+        pos:520,-105
+    Button:
+        text: "Exit"
+        color: 0,0,0,1
+        pos:58,67
+        background_color: 0,128,128, .7
+        font_size: "20dp"
+        size_hint:.85,.07
+        on_press: app.Exit()
+ 
+<SignupScreen>:
+    name: "Signup_Screen"
+    nameInput: nameInput
+    phInput: phInput
+    emailInput: emailInput
+    genderInput: genderInput
+    levelInput: levelInput
+    sportInput: sportInput
+    cityInput: cityInput
+   
+    Label:
+        canvas.before:
+            Rectangle:
+                source:"C:/Users/Lenovo/Desktop/kivy-thelab/images/EditedChess.jpg"
+                size:self.size
+    Image:
+        source:"C:/Users/Lenovo/Desktop/kivy-thelab/images/EditedLogo.jpg"
+        pos:562,410
+        size_hint:.15,.15
+ 
+    Label:
+        text: "Sign Up Page"
+        bold:True
+        font_size: "30dp"
+        color: 0,0,0,1
+        size_hint: None,None
+        pos: 300,385
+        width: "200dp"
+        height: "200dp"
+    Label:
+        text: "User Name"
+        bold:True
+        italic:True
+        font_size: "19dp"
+        color: 0,0,0,1
+        pos:-127,130
+        width: "200dp"
+    TextInput:
+        id: nameInput
+        multiline: False
+        size_hint:.25,.05
+        pos:170,385
+        font_size:"15dp"
+        #on_text_validate: root.textValidationName()
+   
+    Label:
+        text: "Phone Number"
+        bold:True
+        italic:True
+        font_size: "19dp"
+        color: 0,0,0,1
+        pos:-128,55
+        width: "200dp"
+    TextInput:
+        id: phInput
+        multiline: False
+        size_hint:.25,.05
+        pos:170,310
+        font_size:"15dp"
+        #on_text_validate: root.textValidationPass()
+ 
+    Label:
+        text: "City"
+        bold:True
+        italic:True
+        font_size: "19dp"
+        color: 0,0,0,1
+        pos:-130,-95
+        width: "200dp"
+ 
+    TextInput:
+        id: cityInput
+        multiline: False
+        size_hint:.25,.05
+        pos:170,160
+        font_size:"15dp"
+        #on_text_validate: root.textValidationId()
+ 
+    Label:
+        text: "Gender"
+        bold:True
+        italic:True
+        font_size: "19dp"
+        color: 0,0,0,1
+        pos:140,-23
+        width: "200dp"
+    Spinner:
+        id: genderdd               #i.e. gender drop down
+        text: "Gender"
+        size_hint:.25,.056
+        pos:440,230
+        values: ["Male","Female","Rather not say","Other"]
+        on_text: root.gender_spinner_clicked(genderdd.text)
+    TextInput:
+        id: genderInput
+        text: "Gender"
+        multiline: False
+        size_hint:.25,.05
+        pos:1100,1200
+        font_size:"15dp"
+        #on_text_validate: root.textValidationPhNo()
+   
+    Label:
+        text: "Email Id"
+        bold:True
+        italic:True
+        font_size: "19dp"
+        color: 0,0,0,1
+        pos:-130,-20
+        width: "200dp"
+    TextInput:
+        id: emailInput
+        multiline: False
+        size_hint:.25,.05
+        pos:170,235
+        font_size:"15dp"
+ 
+    Label:
+        text: "Level"
+        bold:True
+        italic:True
+        font_size: "19dp"
+        color: 0,0,0,1
+        pos:140,55
+        width: "200dp"
+ 
+    Spinner:
+        id: leveldd           #i.e. level drop down
+        text: "Level"
+        size_hint:.25,.056
+        pos:440,308
+        values: ["District","State","National"]
+        on_text: root.level_spinner_clicked(leveldd.text)
+ 
+    TextInput:
+        id: levelInput
+        text: "Level"
+        multiline: False
+        size_hint:.25,.05
+        pos:1110,1100
+        font_size:"15dp"
+        #on_text_validate: root.textValidationEmail()
+ 
+    Label:
+        text: "Sport"
+        bold:True
+        italic:True
+        font_size: "19dp"
+        color: 0,0,0,1
+        pos:140,-96
+        width: "200dp"
+    TextInput:
+        id: sportInput
+        multiline: False
+        text: "Sport"
+        multiline: False
+        size_hint:.25,.05
+        pos:1300,1100
+        font_size:"15dp"
+        #on_text_validate: root.textValidationAdhaar()
+    Spinner:
+        id: sportdd           #i.e. sport drop down
+        text: "Sport"
+        size_hint:.25,.056
+        pos:440,157
+        values: ["Badminton","Boxing","Cricket","Chess","Football"]
+        on_text: root.sport_spinner_clicked(sportdd.text)
+ 
+    Button:
+        text: "Back"
+        bold: True
+        color: 0,0,0,1
+        background_color: 0,128,128, .7
+        font_size: "23dp"
+        size_hint: .33,.05
+        pos:134,102
+        on_release:
+            app.root.current="Main_Screen"
+            root.manager.transition.direcion="right"
+    Button:
+        text: "Submit"
+        bold: True
+        size_hint: .33,.05
+        color: 0,0,0,1
+        pos:404,102
+        background_color: 0,128,128, .7
+        font_size: "23dp"
+        on_press: root.submit()
+ 
+ 
+<AdminLScreen>:
+    name: "AdminL_Screen"
+    rows: 3
+    nInput: nInput
+    pInput: pInput
+    canvas.before:
+        Rectangle:
+            size:self.size
+            source:"C:/Users/Lenovo/Desktop/kivy-thelab/images/EditedCricket.jpg"
+    Image:
+        source:"C:/Users/Lenovo/Desktop/kivy-thelab/images/EditedLogo.jpg"
+        pos:577,420
+        size_hint:.16,.16
+    Label:
+        text: "Name"
+        bold:True
+        font_size: "25.5dp"
+        color: 0,0,0,1
+        size_hint: None,None
+        pos: 300,285
+        width: "200dp"
+        height: "200dp"
+    Label:
+        text: "Admin Login Page"
+        bold:True
+        font_size: "30dp"
+        color: 0,0,0,1
+        size_hint: None,None
+        pos: 300,385
+        width: "200dp"
+        height: "200dp"
+    TextInput:
+        id: nInput
+        multiline: False
+        size_hint:.4,.05
+        pos:244,330
+        font_size:"13dp"
+    Label:
+        text: "Password"
+        bold:True
+        font_size: "25.5dp"
+        color: 0,0,0,1
+        size_hint_x: None
+        width: "200dp"
+        height: "200dp"
+        pos: 300,-25
+    TextInput:
+        id: pInput
+        font_size:"13dp"
+        on_text_validate: root.submitAdmin()
+        multiline: False
+        password: True
+        size_hint:.4,.05
+        pos:244,220
+    Button:
+        text: "Login"
+        bold: True
+        size_hint: .2,.06
+        color: 0,0,0,1
+        background_color: 0,128,128, .8
+        font_size: "23dp"
+        pos:243,140
+        #on_press: root.submitAdmin()
+       
+        on_release:
+            app.root.current="Admin_Screen"
+            root.manager.transition.direcion="right"
+    Button:
+        text: "Back"
+        bold: True
+        color: 0,0,0,1
+        background_color: 0,128,128, .7
+        font_size: "23dp"
+        size_hint: .2,.06
+        pos:408,140
+        on_release:
+            app.root.current="Main_Screen"
+            root.manager.transition.direcion="right"
+ 
+<AdminScreen>:
+    name: "Admin_Screen"
+    rows: 5
+    Button:
+        text: "Search"
+        bold: True
+        color: 0,0,0,1
+        background_color: 0,128,128, .7
+        font_size: "23dp"
+        size_hint: 1,1
+        on_release:
+            app.root.current="Search_Screen"
+            root.manager.transition.direcion="left"
+   
+    Button:
+        text: "Edit"
+        bold: True
+        color: 0,0,0,1
+        background_color: 0,128,128, .7
+        font_size: "23dp"
+        size_hint: 1,1
+        on_release:
+            app.root.current="Edit_Screen"
+            root.manager.transition.direcion="left"
+ 
+    Button:
+        text: "Delete"
+        bold: True
+        color: 0,0,0,1
+        background_color: 0,128,128, .7
+        font_size: "23dp"
+        size_hint: 1,1
+        on_release:
+            app.root.current="Delete_Screen"
+            root.manager.transition.direcion="left"
+   
+    Button:
+        text: "Display"
+        bold: True
+        color: 0,0,0,1
+        background_color: 0,128,128, .7
+        font_size: "23dp"
+        size_hint: 1,1
+        on_release:
+            app.root.current="Display_Screen"
+            root.manager.transition.direcion="left"
+ 
+    Button:
+        text: "Back"
+        bold: True
+        color: 0,0,0,1
+        background_color: 0,128,128, .7
+        font_size: "23dp"
+        size_hint: 1,1
+        on_release:
+            app.root.current="Main_Screen"
+            root.manager.transition.direcion="right"
